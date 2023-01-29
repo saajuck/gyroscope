@@ -1,3 +1,6 @@
-export default {
-    base: '/gyroscope/'
-}
+ 
+import { defineConfig } from 'vite'
+
+export default defineConfig({
+  base: ".gyroscope"
+})
