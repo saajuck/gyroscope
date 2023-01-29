@@ -8,7 +8,7 @@ export const setup = () => {
     htmlVideo.children[1].setAttribute('src', videoWebm)
     htmlVideo.addEventListener('loadedmetadata', () => {
         console.log(htmlVideo.duration)
-        // htmlVideo.currentTime = 0.975;
+        htmlVideo.currentTime = 0.975;
 
     });
        
