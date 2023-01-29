@@ -18,7 +18,6 @@ export const setup = () => {
       
         htmlText.textContent = `beta : ${Math.round(Number(x) * 100) / 100}\n`;
         htmlText.textContent += `gamma: ${Math.round(Number(y) * 100) / 100}\n`;
-        htmlText.textContent += `tot: ${Math.round((Number(y) + Number(x)) * 100) / 100}\n`;
     }
 
     window.addEventListener("deviceorientation", handleOrientation);
