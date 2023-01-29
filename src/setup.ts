@@ -18,7 +18,27 @@ export const setup = () => {
       
         htmlText.textContent = `beta : ${Math.round(Number(x) * 100) / 100}\n`;
         htmlText.textContent += `gamma: ${Math.round(Number(y) * 100) / 100}\n`;
+        htmlText.textContent += `tot: ${Math.round((Number(y) + Number(x)) * 100) / 100}\n`;
     }
 
     window.addEventListener("deviceorientation", handleOrientation);
 }
+
+
+/*
+
+current time : 
+
+bottom = htmlVideo.currentTime / 2
+left =  htmlVideo.currentTime / 4
+right = htmlVideo.currentTime / 2 + htmlVideo.currentTime / 4 
+
+position 
+
+bottom = x = 0, y = 100
+
+
+
+*/
+
+
