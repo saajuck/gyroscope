@@ -1,13 +1,14 @@
-import video from './assets/vanhelsing.mp4'
+import videoMp4 from './assets/vanhelsing.mp4'
+import videoWebm from './assets/vanhelsing.webm'
 
 export const setup = () => {
     const htmlVideo = document.querySelector<HTMLVideoElement>('#video')!
     const htmlText = document.querySelector<HTMLButtonElement>('#txt')!
-    const el = htmlVideo.children[0]
-    el.setAttribute('src', video)
+    htmlVideo.children[0].setAttribute('src', videoMp4)
+    htmlVideo.children[1].setAttribute('src', videoWebm)
     htmlVideo.addEventListener('loadedmetadata', () => {
         console.log(htmlVideo.duration)
-        htmlVideo.currentTime = 0.975;
+        // htmlVideo.currentTime = 0.975;
 
     });
        
