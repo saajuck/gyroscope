@@ -8,7 +8,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
      <source src="" type="video/mp4" id="source">
 
     </video>
-  <p id="txt"></p>
+    <p id="txt"></p>
   </div>
 `
 

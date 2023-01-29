@@ -21,8 +21,8 @@ export const setup = () => {
         let x = event.beta; // In degree in the range [-180,180)
         let y = event.gamma; // In degree in the range [-90,90)
       
-        htmlText.textContent = `beta : ${x}\n`;
-        htmlText.textContent += `gamma: ${y}\n`;
+        htmlText.textContent = `beta : ${Math.round(Number(x) * 100) / 100}\n`;
+        htmlText.textContent += `gamma: ${Math.round(Number(y) * 100) / 100}\n`;
     }
 
     window.addEventListener("deviceorientation", handleOrientation);
