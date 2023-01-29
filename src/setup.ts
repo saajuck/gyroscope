@@ -1,6 +1,6 @@
 import video from './assets/vanhelsing.mp4'
 
-export const setup = ( ) => {
+export const setup = () => {
     const htmlVideo = document.querySelector<HTMLButtonElement>('#video')!
     const htmlText = document.querySelector<HTMLButtonElement>('#txt')!
     const el = htmlVideo.children[0]
@@ -17,7 +17,7 @@ export const setup = ( ) => {
     // })
     // gyroscope.start();
 
-    const handleOrientation = (event)=>{
+    const handleOrientation = (event: DeviceOrientationEvent)=>{
         let x = event.beta; // In degree in the range [-180,180)
         let y = event.gamma; // In degree in the range [-90,90)
       
