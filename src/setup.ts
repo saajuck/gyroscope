@@ -29,6 +29,7 @@ export const setup = () => {
 
     htmlVideo.children[0].setAttribute('src', videoMp4)
     htmlVideo.children[1].setAttribute('src', videoWebm)
+    htmlVideo.load();
     htmlVideo.addEventListener('loadedmetadata', () => {
         window.addEventListener("deviceorientation", handleOrientation);
     });
