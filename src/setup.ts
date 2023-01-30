@@ -12,13 +12,17 @@ export const setup = () => {
         const y = Math.round(Number( event.beta ) * 100) / 100; 
         const x = Math.round(Number( event.gamma ) * 100) / 100;
       
-        const degres = calcAngleDegrees(x || 0, y || 0)
+        /* 
+             360 
+        */
+        
+        const degres = calcAngleDegrees(x || 0, y || 0) + 90
         let currentTime = degres * htmlVideo.duration / 360;
         htmlVideo.currentTime = currentTime;
 
         htmlText.textContent = `beta : ${Math.round(Number(x) * 100) / 100}\n`;
         htmlText.textContent += `gamma: ${Math.round(Number(y) * 100) / 100}\n`;
-        htmlTextVideo.textContent = 'currentTime: '+currentTime.toString() + 'htmlVideo.currentTime:'+htmlVideo.currentTime+ " degres: "+degres
+        htmlTextVideo.textContent = 'currentTime: '+currentTime.toString() + " degres: "+degres
 
     }
 
