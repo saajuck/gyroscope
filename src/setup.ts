@@ -8,7 +8,6 @@ export const setup = () => {
     const htmlVideo = document.querySelector<HTMLVideoElement>('#video')!
     const htmlText = document.querySelector<HTMLButtonElement>('#txt')!
     const htmlTextVideo = document.querySelector<HTMLButtonElement>('#videoTime')!
-
     const handleOrientation = (event: DeviceOrientationEvent)=>{
         const y = event.beta; 
         const x = event.gamma;
@@ -18,15 +17,14 @@ export const setup = () => {
         const degres = calcAngleDegrees(x || 0, y || 0)
         let currentTime = degres * htmlVideo.currentTime / 360;
         htmlVideo.currentTime = currentTime;
-        htmlTextVideo.textContent = currentTime.toString()
+        console.log(currentTime, htmlTextVideo)
+        htmlTextVideo.textContent = 'currentTime: '+currentTime.toString()
     }
 
 
     htmlVideo.children[0].setAttribute('src', videoMp4)
     htmlVideo.children[1].setAttribute('src', videoWebm)
     htmlVideo.addEventListener('loadedmetadata', () => {
-        console.log(htmlVideo.duration)
-        htmlVideo.currentTime = 0.975;
         window.addEventListener("deviceorientation", handleOrientation);
     });
        
