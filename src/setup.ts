@@ -7,6 +7,7 @@ const calcAngleDegrees = (x:number, y:number) => Math.atan2(y, x) * 180 / Math.P
 export const setup = () => {
     const htmlVideo = document.querySelector<HTMLVideoElement>('#video')!
     const htmlText = document.querySelector<HTMLButtonElement>('#txt')!
+    const htmlTextVideo = document.querySelector<HTMLButtonElement>('#videoTime')!
 
     const handleOrientation = (event: DeviceOrientationEvent)=>{
         const y = event.beta; 
@@ -15,7 +16,9 @@ export const setup = () => {
         htmlText.textContent = `beta : ${Math.round(Number(x) * 100) / 100}\n`;
         htmlText.textContent += `gamma: ${Math.round(Number(y) * 100) / 100}\n`;
         const degres = calcAngleDegrees(x || 0, y || 0)
-        htmlVideo.currentTime = degres * htmlVideo.currentTime / 360;
+        let currentTime = degres * htmlVideo.currentTime / 360;
+        htmlVideo.currentTime = currentTime;
+        htmlTextVideo.textContent = currentTime.toString()
     }
 
 
