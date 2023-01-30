@@ -18,7 +18,7 @@ export const setup = () => {
         let currentTime = degres * htmlVideo.currentTime / 360;
         htmlVideo.currentTime = currentTime;
         console.log(currentTime, htmlTextVideo)
-        htmlTextVideo.textContent = 'currentTime: '+currentTime.toString()
+        htmlTextVideo.textContent = 'currentTime: '+currentTime.toString() + ' - htmlVideo.currentTime:'+htmlVideo.currentTime+ " - degres: "+degres
     }
 
 
