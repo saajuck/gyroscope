@@ -9,16 +9,17 @@ export const setup = () => {
     const htmlText = document.querySelector<HTMLButtonElement>('#txt')!
     const htmlTextVideo = document.querySelector<HTMLButtonElement>('#videoTime')!
     const handleOrientation = (event: DeviceOrientationEvent)=>{
-        const y = event.beta; 
-        const x = event.gamma;
+        const y = Math.round(Number( event.beta ) * 100) / 100; 
+        const x = Math.round(Number( event.gamma ) * 100) / 100;
       
+        const degres = calcAngleDegrees(x || 0, y || 0)
+        let currentTime = degres * htmlVideo.duration / 360;
+        htmlVideo.currentTime = currentTime;
+
         htmlText.textContent = `beta : ${Math.round(Number(x) * 100) / 100}\n`;
         htmlText.textContent += `gamma: ${Math.round(Number(y) * 100) / 100}\n`;
-        const degres = calcAngleDegrees(x || 0, y || 0)
-        let currentTime = degres * htmlVideo.currentTime / 360;
-        htmlVideo.currentTime = currentTime;
-        console.log(currentTime, htmlTextVideo)
-        htmlTextVideo.textContent = 'currentTime: '+currentTime.toString() + ' - htmlVideo.currentTime:'+htmlVideo.currentTime+ " - degres: "+degres
+        htmlTextVideo.textContent = 'currentTime: '+currentTime.toString() + 'htmlVideo.currentTime:'+htmlVideo.currentTime+ " degres: "+degres
+
     }
 
 
