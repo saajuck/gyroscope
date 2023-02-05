@@ -1,5 +1,5 @@
 
-const getTransform = (x:number, y:number) => "translate("+x+','+y+")"
+const getTransform = (x:number, y:number) => x+'px,'+y+"px"
 
 export const setup = () => {
     const htmlPerso = document.querySelector<HTMLVideoElement>('.perso')!
@@ -7,7 +7,7 @@ export const setup = () => {
     const htmlFg = document.querySelector<HTMLVideoElement>('.fg')!
     const htmlText = document.querySelector<HTMLButtonElement>('#txt')!
     
-       
+    htmlPerso.style.transform = `translate(${getTransform(90 * 0.1, -20 * 0.1)})`;
 
     const handleOrientation = (event: DeviceOrientationEvent)=>{
         let x = event.beta || 0; // In degree in the range [-180,180)
