@@ -22,6 +22,8 @@ img {
   bottom: 0;
   right: 0;
   position: absolute;
+  transition: all;
+  transition-duration: 100ms;
 }
 
 #txt { 
