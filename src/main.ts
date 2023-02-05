@@ -1,9 +1,9 @@
 import './style.css'
 import './reset.css'
 import { setup } from './setup'
-import perso from './assets/layers_vanhelsing/perso.png'
-import bg from './assets/layers_vanhelsing/bg.jpg'
-import fg from './assets/layers_vanhelsing/fg.png'
+import perso from './assets/layers_vanhelsing_resized/perso.png'
+import bg from './assets/layers_vanhelsing_resized/bg.jpg'
+import fg from './assets/layers_vanhelsing_resized/fg.png'
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
     <p id="txt"></p>
