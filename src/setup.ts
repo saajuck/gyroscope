@@ -1,4 +1,13 @@
-
+const queryPermissionsState = async() => {
+    try {
+      const {state} = await navigator.permissions.query({name: 'geolocation'});
+      return state; // can be ‘prompt’, ‘granted’, or ‘denied’
+    } catch (err) {
+      // when the permissions-API isn't available (e.g. Safari prior to 16.0),
+      // we have to assume we have to ask.
+      return 'prompt';
+    }
+  }
 const getTransform = (x:number, y:number) => x+'px,'+y+"px"
 
 export const setup = () => {
@@ -18,7 +27,10 @@ export const setup = () => {
         htmlText.textContent = `beta : ${Math.round(Number(x) * 100) / 100}\n`;
         htmlText.textContent += `gamma: ${Math.round(Number(y) * 100) / 100}\n`;
     }
-
-    window.addEventListener("deviceorientation", handleOrientation);
+    queryPermissionsState().then(res =>{
+        if(res ==='granted' ){
+            window.addEventListener("deviceorientation", handleOrientation);
+        }
+    })
 }
  
