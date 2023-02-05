@@ -28,8 +28,35 @@ img {
 
 img.fg{
   width: 130vw;
-}
+  z-index: 20;
 
+}
+img.perso { 
+  z-index: 15;
+
+}
 #txt { 
   color: white
+}
+
+.imgContainer p{ 
+  position: absolute;
+  background: linear-gradient(#eee, rgba(255, 255, 255, 0.378));
+  background-clip: text;
+  -webkit-background-clip: text;
+  font-family: 'Oswald', sans-serif;
+  z-index: 10;
+  color: transparent;
+  font-size: 60px;
+}
+p#van {
+  top: 350px;
+  left: 180px;
+}
+
+p#helsing {
+  font-size: 100px;
+  top: 390px;
+  left: 70px;
+  z-index: 13;
 }
