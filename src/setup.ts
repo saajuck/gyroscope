@@ -31,8 +31,8 @@ export const setup = () => {
         let x = event.gamma || 0; // In degree in the range [-90,90)
         htmlPerso.style.top = formatPosition(y, 0.1);
         htmlPerso.style.left = formatPosition(x, 0.1);
-        htmlFg.style.top = formatPosition(y, 0.125);
-        htmlFg.style.left = formatPosition(x, 0.125);
+        htmlFg.style.top = formatPosition(y, 0.15);
+        htmlFg.style.left = formatPosition(x, 0.15);
 
         htmlText.textContent = `beta : ${Math.round(Number(x) * 100) / 100}\n`;
         htmlText.textContent += `gamma: ${Math.round(Number(y) * 100) / 100}\n`;
