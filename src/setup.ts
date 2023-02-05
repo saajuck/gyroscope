@@ -1,44 +1,24 @@
-import videoMp4 from './assets/vanhelsing.mp4'
-import videoWebm from './assets/vanhelsing.webm'
+
+const getTransform = (x:number, y:number) => "translate("+x+','+y+")"
 
 export const setup = () => {
-    const htmlVideo = document.querySelector<HTMLVideoElement>('#video')!
+    const htmlPerso = document.querySelector<HTMLVideoElement>('.perso')!
+    const htmlBg = document.querySelector<HTMLVideoElement>('.bg')!
+    const htmlFg = document.querySelector<HTMLVideoElement>('.fg')!
     const htmlText = document.querySelector<HTMLButtonElement>('#txt')!
-    htmlVideo.children[0].setAttribute('src', videoMp4)
-    htmlVideo.children[1].setAttribute('src', videoWebm)
-    htmlVideo.addEventListener('loadedmetadata', () => {
-        console.log(htmlVideo.duration)
-        htmlVideo.currentTime = 0.975;
-
-    });
+    
        
 
     const handleOrientation = (event: DeviceOrientationEvent)=>{
-        let x = event.beta; // In degree in the range [-180,180)
-        let y = event.gamma; // In degree in the range [-90,90)
-      
+        let x = event.beta || 0; // In degree in the range [-180,180)
+        let y = event.gamma || 0; // In degree in the range [-90,90)
+        htmlPerso.style.transform = `translate(${getTransform(x * 0.1, y * 0.1)})`;
+        htmlFg.style.transform = `translate(${getTransform(x * 0.2, y * 0.2)})`;
+
         htmlText.textContent = `beta : ${Math.round(Number(x) * 100) / 100}\n`;
         htmlText.textContent += `gamma: ${Math.round(Number(y) * 100) / 100}\n`;
     }
 
     window.addEventListener("deviceorientation", handleOrientation);
 }
-
-
-/*
-
-current time : 
-
-bottom = htmlVideo.currentTime / 2
-left =  htmlVideo.currentTime / 4
-right = htmlVideo.currentTime / 2 + htmlVideo.currentTime / 4 
-
-position 
-
-bottom = x = 0, y = 100
-
-
-
-*/
-
-
+ 
