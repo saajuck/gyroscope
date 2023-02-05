@@ -3,7 +3,7 @@ const getTransform = (x:number, y:number) => "translate("+x+','+y+")"
 
 export const setup = () => {
     const htmlPerso = document.querySelector<HTMLVideoElement>('.perso')!
-    const htmlBg = document.querySelector<HTMLVideoElement>('.bg')!
+    // const htmlBg = document.querySelector<HTMLVideoElement>('.bg')!
     const htmlFg = document.querySelector<HTMLVideoElement>('.fg')!
     const htmlText = document.querySelector<HTMLButtonElement>('#txt')!
     
