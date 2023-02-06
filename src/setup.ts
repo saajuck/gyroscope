@@ -23,6 +23,7 @@ const handleOrientation = (event: DeviceOrientationEvent)=>{
 }
 
 const queryPermissions = async():Promise<void> => {
+    console.log('queryPermissions')
     if(iOS && requestPermission) {
         try {
             const permissionState =  await requestPermission();
@@ -39,11 +40,10 @@ const queryPermissions = async():Promise<void> => {
 }
  
 export const setup = () => {
-    const htmlBody = document.querySelector<HTMLBodyElement>('body')!
-    console.log(htmlBody)
+    const htmlButton = document.querySelector<HTMLButtonElement>('.imgContainer')!
     if(iOS) { 
-        console.log(htmlBody)
-        htmlBody.addEventListener('onClick', queryPermissions)
+        htmlButton.addEventListener('touchstart', queryPermissions)
+        htmlButton.addEventListener('click', queryPermissions)
     }else{
         window.addEventListener("deviceorientation", handleOrientation);
     }

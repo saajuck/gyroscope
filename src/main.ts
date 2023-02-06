@@ -8,13 +8,13 @@ import fg from './assets/layers_vanhelsing_resized/fg.png'
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
     <p id="txt"></p>
 
-    <div class="imgContainer">
+    <button class="imgContainer">
       <p class='name' id="van">VAN</p>
       <p class='name' id="helsing">HELSING</p>
       <img src=${bg} class='bg'/>
       <img src=${perso} class='perso'/>
       <img src=${fg} class='fg'/>
-    </div>
+    </button>
 `
 
 setup()
